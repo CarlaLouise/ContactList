@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -20,15 +21,17 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        // Create data class (representa casos da vida real)
-        // Creat list from data class type
-        // Create Adapter
         // Set Adapter
         // Linear Layout manager
+        //Submeter Lista
 
         val rvlist = findViewById<RecyclerView>(R.id.rv_list)
+        val adapter = ContactListAdapter()
 
+        rvlist.adapter = adapter
+        rvlist.layoutManager = LinearLayoutManager (this)
 
+        adapter.submitList(contacts)
     }
 }
 
@@ -88,4 +91,4 @@ private val contacts = listOf(
         phone= "(55) 83 934364553",
         icon= R.drawable.contato11
     ),
-    )
+)
