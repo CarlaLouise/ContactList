@@ -1,6 +1,8 @@
 package com.devspace.recyclerview
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -38,63 +40,74 @@ class MainActivity : AppCompatActivity() {
         ivList.setOnClickListener {
            rvlist.layoutManager = LinearLayoutManager (this)
         }
+
+        adapter.setOnClickLister { contact ->
+            val intent = Intent(this, ContactDetailActivity::class.java)
+            intent.putExtra("name", contact.name)
+            intent.putExtra("phone", contact.phone)
+            intent.putExtra("icon", contact.icon)
+            startActivity(intent)
+
+        }
+
     }
 }
+
 
 private val contacts = listOf(
     Contact(
         name= "Shirley",
         phone= "(55) 11 945364589",
-        icon= R.drawable.contato1
+        icon= R.drawable.sample1
     ),
     Contact(
        name= "Aurea",
        phone= "(55) 21 944564589",
-       icon=  R.drawable.contato2
+       icon=  R.drawable.sample3
         ),
     Contact(
        name=  "Sergio",
        phone=  "(55) 85 945368639",
-       icon=  R.drawable.contato3
+       icon=  R.drawable.sample2
     ),
     Contact(
        name= "Monique",
        phone=  "(55) 81 945401589",
-       icon= R.drawable.contato4
+       icon= R.drawable.sample11
     ),
     Contact(
         name= "Sofia",
         phone = "(55) 31 962364589",
-        icon= R.drawable.contato5
+        icon= R.drawable.sample4
     ),
     Contact(
         name= "Rosario",
         phone= "(55) 87 945369379",
-        icon= R.drawable.contato6
+        icon= R.drawable.sample16
     ),
     Contact(
         name= "Fernando",
         phone= "(55) 75 927134589",
-        icon= R.drawable.contato7
+        icon= R.drawable.sample10
     ),
     Contact(
         name= "Arnoldo",
         phone= "(55) 71 992236819",
-        icon= R.drawable.contato8
+        icon= R.drawable.sample12
     ),
     Contact(
         name= "Fabricio",
         phone= "(55) 22 927164589",
-        icon= R.drawable.contato9
+        icon= R.drawable.sample8
     ),
     Contact(
         name= "Cristian",
         phone= "(55) 51 983164589",
-        icon= R.drawable.contato10
+        icon= R.drawable.sample9
     ),
     Contact(
         name= "Radassa",
         phone= "(55) 83 934364553",
-        icon= R.drawable.contato11
+        icon= R.drawable.sample7
     ),
 )
